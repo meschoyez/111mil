@@ -1,0 +1,618 @@
+Ejercicio 1
+
+# Nombre de variables
+# 1) Puede comenzar solo con Letras y "_"
+# 2) A partir del 2do caracter puedo usar
+#    Letras, Dígitos y "_"
+
+INICIO sumar
+  ENTERO nro1
+  ENTERO nro2
+  IMPRIMIR "Ingrese un numero entero: "
+  TOMAR nro1
+  IMPRIMIR "Ingrese otro numero entero: "
+  TOMAR nro2
+  ENTERO resultado
+  resultado = nro1 + nro2
+  IMPRIMIR "El resultado es " + resultado
+FIN
+
+
+--------------------------------
+
+Ejercicio 2
+
+INICIO login
+    CONST CADENA usuario = "XXXXXXXX"
+    CONST CADENA clave = "XXXXXXX"
+    CADENA nombre
+    CADENA passwd
+    IMPRIMIR "Ingrese nombre de usuario"
+    TOMAR nombre
+    IMPRIMIR "Ingrese clave"
+    TOMAR passwd
+
+    SI usuario == nombre && clave == passwd
+    ENTONCES
+      IMPRIMIR "Bienvenido"
+    SINO
+      IMPRIMIR "Nombre o usuario incorrecto"
+    FIN_SI
+FIN
+
+Alternativa
+
+INICIO login
+    CADENA nombre
+    CADENA passwd
+    IMPRIMIR "Ingrese nombre de usuario"
+    TOMAR nombre
+    IMPRIMIR "Ingrese clave"
+    TOMAR passwd
+
+    SI esValido(nombre, passwd)
+    ENTONCES
+      IMPRIMIR "Bienvenido"
+    SINO
+      IMPRIMIR "Nombre o usuario incorrecto"
+    FIN_SI
+FIN
+
+--- -----------------------------
+
+INICIO aula
+  ENTERO bancos
+  ENTERO inscriptos
+  IMPRIMIR "Ingrese cantidad de bancos: "
+  TOMAR bancos
+  IMPRIMIR "Ingrese cantidad de inscriptos: "
+  TOMAR inscriptos
+
+  SI bancos >= inscriptos
+    ENTONCES
+      IMPRIMIR "Hay suficientes bancos"
+    SINO
+      ENTERO faltante
+      faltante = inscriptos - bancos
+      IMPRIMIR "Faltan" + faltante + "bancos"
+  FIN_SI
+FIN
+
+----------
+
+INICIO sumar
+  ENTERO bancos
+  ENTERO inscriptos
+  IMPRIMIR "Ingrese cantidad de bancos: "
+  TOMAR bancos
+  IMPRIMIR "Ingrese cantidad de inscriptos: "
+  TOMAR inscriptos
+  ENTERO diferencia
+  diferencia = bancos - inscriptos
+  SI diferencia >= 0 :
+      IMPRIMIR "Hay suficientes bancos"
+    SINO
+      IMPRIMIR "Faltan" + -diferencia + "bancos"
+  FIN_SI
+FIN
+
+------------------------
+
+Negación Lógica
+
+a != b   equiv   !(a == b)
+
+x pertenece a [-10, 10]
+
+((x >= -10) && (x <= 10))
+
+x NO pertenece a [-10, 10]
+
+a) ((x < -10) || (x > 10))
+
+b) !((x >= -10) && (x <= 10))
+
+---------------------------------
+INICIO MesDelAnio
+  ENTERO mes
+  IMPRIMIR "Ingrese un numero de mes"
+  TOMAR mes
+
+  SEGUN SEA mes
+    1: IMPRIMIR "Enero"
+    2: IMPRIMIR "Febrero"
+    3: IMPRIMIR "Marzo"
+    4: IMPRIMIR "Abril"
+    5: IMPRIMIR "Mayo"
+    6: IMPRIMIR "Junio"
+    7: IMPRIMIR "Julio"
+    8: IMPRIMIR "Agosto"
+    9: IMPRIMIR "Septiembre"
+    10: IMPRIMIR "Octubre"
+    11: IMPRIMIR "Noviembre"
+    12: IMPRIMIR "Diciembre"
+    otro: IMPRIMIR "Nro ingresado no valido"
+  FIN SEGUN SEA
+FIN
+
+-----------------------------
+
+Diseñar un algoritmo que muestre por pantalla la
+tabla de multiplicación del número que ingrese
+el usuario. Para definir hasta que número desea
+que muestre la tabla de multiplicación el usuario
+también deberá ingresar este valor.
+
+¿Cuántos datos ingresa el usuario? -> 2
+¿Qué tengo que hacer con esos datos? -> multiplicar un
+  número varias veces por otros
+¿Me alcanzan los datos del usuario o necesito
+datos auxiliares?
+
+INICIO TablaMultiplicar
+  ENTERO  valor, limite
+  IMPRIMIR "Nro de la tabla de multiplicar"
+  TOMAR valor
+  IMPRIMIR "Nro. maximo para multiplicar"
+  TOMAR limite
+  PARA (ENTERO nro = 0; nro <= limite; nro = nro + 1)
+    IMPRIMIR valor + "*" + nro + "=" + (valor * nro)
+  FIN_PARA
+FIN
+
+INICIO TablaMultiplicar
+  ENTERO  valor, limite
+  IMPRIMIR "Nro de la tabla de multiplicar"
+  TOMAR valor
+  IMPRIMIR "Nro. maximo para multiplicar"
+  TOMAR limite
+  ENTERO nro = 0
+  MIENTRAS (nro <= limite)
+    IMPRIMIR valor + "*" + nro + "=" + (valor * nro)
+    nro = nro + 1
+  FIN_MIENTRAS
+FIN
+
+-------------------------------------
+Diseñar un algoritmo que realice el promedio de n
+números. Los números podrán ser decimales
+y serán ingresados por pantalla por el usuario.
+
+INICIO Sumatoria
+    DECIMAL nro, suma = 0
+    ENTERO cantidad
+    IMPRIMIR "Ingrese cantidad de numeros a promediar"
+    TOMAR cantidad
+
+    PARA (ENTERO veces = 0; veces < cantidad; veces++)
+        IMPRIMIR "Ingrese un valor"
+        TOMAR nro
+        suma = suma + nro
+    FIN_PARA
+    DECIMAL resultado = suma / cantidad
+
+    IMPRIMIR "El promedio es" + resultado
+FIN
+
+-------------------------------------------------
+
+Diseñar un algoritmo que solicite al usuario dos
+números y calcule la distancia entre ellos.
+(el resultado debe estar en valor absoluto!!!)
+
+INICIO Distancia
+    FLOTANTE nro1, nro2
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro1
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro2
+    FLOTANTE distancia = nro1 - nro2
+    SI distancia < 0
+        ENTONCES distancia = -distancia
+    FIN_SI
+    IMPRIMIR "La distancia es" + distancia
+FIN
+
+-----------------------------------------
+
+Diseñar un algoritmo que solicita dos números
+al usuario y determina cual es el mayor.
+
+INICIO MayorDeDos
+    FLOTANTE nro1, nro2
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro1
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro2
+    FLOTANTE mayor
+    CADENA orden // Java string
+    SI nro1 > nro2
+        ENTONCES mayor = nro1
+        orden = "primero"
+    SINO
+         mayor = nro2
+         orden = "segundo"
+    FIN_SI
+    IMPRIMIR "El mayor es el" + orden + ":" +  mayor
+FIN
+
++++++
+Variante
+...
+    FLOTANTE mayor = nro1
+    CADENA orden = "primero"
+    SI nro1 < nro2
+        ENTONCES 
+         mayor = nro2
+         orden = "segundo"
+    FIN_SI
+...
++++++
+-----------------------------------------
+Diseñar un algoritmo que solicita tres números
+al usuario y determina cual es el mayor.
+
+INICIO MayorDeTres1
+    FLOTANTE nro1, nro2, nro3
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro1
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro2
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro3
+    FLOTANTE mayor
+    SI nro1 > nro2 && nro1 > nro3
+        ENTONCES mayor = nro1
+    SINO
+        SI nro2 > nro3
+            ENTONCES mayor = nro2
+        SINO
+            mayor = nro3
+        FIN_SI
+    FIN_SI
+    IMPRIMIR "El mayor es" + mayor
+FIN
+
+INICIO MayorDeTres2
+    FLOTANTE nro1, nro2, nro3
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro1
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro2
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro3
+    FLOTANTE mayor
+    SI nro1 > nro2
+        ENTONCES mayor = nro1
+    SINO
+        mayor = nro2
+    FIN_SI
+    SI mayor < nro3
+        ENTONCES mayor = nro3
+    FIN_SI
+    IMPRIMIR "El mayor es" + mayor
+FIN
+
+INICIO MayorDeTres3
+    FLOTANTE nro1, nro2, nro3
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro1
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro2
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro3
+    FLOTANTE mayor = nro1
+    SI mayor < nro2
+        ENTONCES mayor = nro2
+    FIN_SI
+    SI mayor < nro3
+        ENTONCES mayor = nro3
+    FIN_SI
+    IMPRIMIR "El mayor es" + mayor
+FIN
+-----------------------------------------
+
+Rediseñe el algoritmo para seis números.
+
+INICIO MayorDeSeis
+    FLOTANTE nro1, nro2, nro3, nro4, nro5, nro6
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro1
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro2
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro3
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro4
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro5
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro6
+    FLOTANTE mayor = nro1
+    SI mayor < nro2
+        ENTONCES mayor = nro2
+    FIN_SI
+    SI mayor < nro3
+        ENTONCES mayor = nro3
+    FIN_SI
+    SI mayor < nro4
+        ENTONCES mayor = nro4
+    FIN_SI
+    SI mayor < nro5
+        ENTONCES mayor = nro5
+    FIN_SI
+    SI mayor < nro6
+        ENTONCES mayor = nro6
+    FIN_SI
+    IMPRIMIR "El mayor es" + mayor
+FIN
+
+----------------------------------------------
+
+Diseñar un algoritmo que pide al usuario un
+número entero y muestra una lista de enteros
+entre 0 y el número ingresado.
+
+INICIO ListaNumeros
+    ENTERO final, inicio = 0
+    IMPRIMIR "Ingrese un numero"
+    TOMAR final
+    IMPRIMIR "Lista de numeros"
+    
+    PARA (ENTERO contador = inicio;
+             contador <= final; contador++)
+        IMPRIMIR contador
+    FIN_PARA
+
+FIN
+
+----------------------------------------------
+
+Diseñar un algoritmo que pide al usuario un
+número entero y muestra una lista de enteros
+entre 0 y el valor absoluto del número ingresado.
+
+INICIO ListaNumeros
+    ENTERO final, inicio = 0
+    IMPRIMIR "Ingrese un numero"
+    TOMAR final
+    IMPRIMIR "Lista de numeros"
+
+    SI final < 0
+        ENTONCES final = -final
+    FIN_SI
+    
+    PARA (ENTERO contador = inicio;
+             contador <= final; contador++)
+        IMPRIMIR contador
+    FIN_PARA
+
+FIN
+
+----------------------------------------------
+Diseñar un algoritmo que pide al usuario dos
+números enteros y muestra la lista de enteros
+entre ellos.
+
+INICIO ListaNumeros
+    ENTERO final, inicio
+    IMPRIMIR "Ingrese valor inicial"
+    TOMAR inicio
+    IMPRIMIR "Ingrese valor final"
+    TOMAR final
+    IMPRIMIR "Lista de numeros"
+    
+    PARA (ENTERO contador = inicio;
+             contador <= final; contador++)
+        IMPRIMIR contador
+    FIN_PARA
+
+FIN
+
+++++++++
+
+INICIO ListaNumeros
+    ENTERO final, inicio
+    IMPRIMIR "Ingrese un valor"
+    TOMAR inicio
+    IMPRIMIR "Ingrese otro valor"
+    TOMAR final
+    IMPRIMIR "Lista de numeros"
+
+    SI inicio > final
+        ENTONCES ENTERO aux = final
+        final = inicio
+        inicio = aux
+    FIN_SI
+    
+    PARA (ENTERO contador = inicio;
+             contador <= final; contador++)
+        IMPRIMIR contador
+    FIN_PARA
+
+FIN
+
+------------------------------------------
+Diseñar un algoritmo que pide al usuario un
+número entero mayor a cero. Si el valor es
+negativo lo vuelve a pedir hasta que ingrese
+un valor positivo.
+Con el valor positivo, generar sus diez
+primeros múltiplos
+
+INICIO Multiplos
+    ENTERO nro
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro
+    ENTERO intentos = 0
+    MIENTRAS nro <= 0 && intentos < 3
+        HACER IMPRIMIR "El numero debe ser positivo"
+            IMPRIMIR "Ingrese un numero"
+            TOMAR nro
+            intentos++
+    FIN_MIENTRAS
+
+    PARA (ENTERO mult = 1; mult <= 10; mult++)
+        IMPRIMIR nro + "*" + mult + "=" + nro * mult
+    FIN_PARA
+
+FIN
+
+---------------------------------------------
+Diseñar un algoritmo que realiza la suma de n números.
+La cantidad n de números y los n números los ingresa
+el usuario por teclado.
+
+INICIO Sumatoria
+    ENTERO cant
+    FLOTANTE nro, suma = 0
+    IMPRIMIR "Ingrese un numero"
+    TOMAR cant
+
+    PARA (ENTERO i = 0; i < cant; i++)
+        IMPRIMIR "Ingrese un numero"
+        TOMAR nro
+        suma += nro     // suma = suma + nro
+    FIN_PARA
+
+    IMPRIMIR "La sumatoria es" + suma
+
+FIN
+
+---------------------------------------------
+Diseñar un algoritmo que realiza la suma de n números.
+Los n números los ingresa el usuario por teclado.
+La suma termina cuando se ingresa un valor negativo.
+(no incluir el negativo en el resultado final!!!)
+
+INICIO SumaCondicional
+    FLOTANTE nro = 1.0, suma = 0.0
+
+    IMPRIMIR "Ingrese un numero"
+    TOMAR nro
+    MIENTRAS nro >= 0
+        HACER
+            suma += nro
+            IMPRIMIR "Ingrese un numero"
+            TOMAR nro
+    FIN_MIENTRAS
+
+    IMPRIMIR "La sumatoria es" + suma
+FIN
+---------------------------------------------
+Rediseñar el algoritmo anterior para contar la cantidad
+de términos de la sumatoria realizada.
+
+---------------------------------------------
+Rediseñar el algoritmo SumaCondicional para que sume
+valores enteros.  Además de la suma, se debe contar la
+cantidad de términos pares utilizados.
+
+---------------------------------------------
+Diseñar un algoritmo que pide números enteros
+al usuario. Al finalizar el ingreso de los datos
+dice cuál es el número mayor ingresado.
+Solicitar al usuario la cantidad de números a
+ingresar.
+
+INICIO Mayor
+    ENTERO cant, nro, mayor, intentos = 0
+    
+    IMPRIMIR "Cantidad datos? "
+    TOMAR cant
+    MIENTRAS cant < 0 && intentos < 3
+        HACER
+            IMPRIMIR "Ingrese valores positivos"
+            IMPRIMIR "Cantidad datos? "
+            TOMAR cant
+            intentos++
+    FIN_MIENTRAS
+
+    SI cant > 0
+    ENTONCES
+        IMPRIMIR "Ingrese un numero"
+        TOMAR mayor
+        PARA (ENTERO i = 1; i < cant; i++)
+            IMPRIMIR "Ingrese un numero"
+            TOMAR nro
+            SI mayor < nro
+                ENTONCES mayor = nro
+            FIN_SI
+        FIN_PARA
+        IMPRIMIR "El mayor es" + mayor
+    SINO
+        IMPRIMIR "No se puede realizar la tarea"
+    FIN_SI
+FIN
+
+-----------------------------------------
+Diseñar un algoritmo que pide al usuario n números
+enteros. Al finalizar la carga se debe determinar
+si todos los números ingresados son positivos.
+
+INICIO TodosPositivosCont
+    ENTERO cant, nro, positivos = 0
+    IMPRIMIR "Cantidad datos? "
+    TOMAR cant
+
+    PARA (ENTERO i = 0; i < cant; i++)
+        IMPRIMIR "Ingrese un numero"
+        TOMAR nro
+        SI nro >= 0
+            ENTONCES positivos++
+        FIN_SI
+    FIN_PARA
+
+    SI positivos == cant
+        IMPRIMIR "Todos son positivos"
+    SINO
+        IMPRIMIR "No todos son positivos"
+    FIN_SI
+FIN
+
+INICIO TodosPositivos
+    ENTERO cant, nro
+    BOOLEANO positivos = Verdadero
+    IMPRIMIR "Cantidad datos? "
+    TOMAR cant
+
+    PARA (ENTERO i = 0; i < cant; i++)
+        IMPRIMIR "Ingrese un numero"
+        TOMAR nro
+        SI nro < 0
+            ENTONCES positivos = Falso
+        FIN_SI
+    FIN_PARA
+
+    SI positivos
+        IMPRIMIR "Todos son positivos"
+    SINO
+        IMPRIMIR "No todos son positivos"
+    FIN_SI
+FIN
+
+-----------------------------------------
+Rediseñar el algoritmo anterior para que pida al
+usuario n números enteros y al finalizar la carga
+determinar si todos los números ingresados son:
+ + positivos
+ + negativos
+ + ambos casos
+
+-----------------------------------------
+Diseñar un algoritmo que determina si un valor
+positivo ingresado por teclado es primo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
