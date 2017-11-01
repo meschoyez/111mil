@@ -603,13 +603,53 @@ determinar si todos los números ingresados son:
 Diseñar un algoritmo que determina si un valor
 positivo ingresado por teclado es primo.
 
+-----------------------------------------
 
+GitHub
 
+https://github.com/meschoyez/111mil
 
+------------------------------------------
+Ejercicio Pág. 61
 
+INICIO ButacasCine
+    ENTERO desocupadas = 0
+    LISTA <BOOLEANO> butacas = {falso, verdadero,
+            verdadero, falso, falso, falso, verdadero}
 
+    desocupadas = ContarButacasLibres(butacas)
+    IMPRIMIR "Hay" + desocupadas + " butacas libres"
 
+    OcuparButaca(butacas, 0)
+    desocupadas = ContarButacasLibres(butacas)
+    IMPRIMIR "Hay" + desocupadas + " butacas libres"
 
+FIN
+
+FUNCION BOOLEANO OcuparButaca (LISTA <BOOLEANO> butacas, ENTERO nro)
+    BOOLEANO libre = ButacaLibre(butacas, nro)
+    SI libre
+    ENTONCES
+        COLOCAR(butacas, nro, verdadero)
+    FIN_SI
+    RETORNA libre
+FIN_FUNCION
+
+FUNCION BOOLEANO ButacaLibre (LISTA <BOOLEANO> butacas, ENTERO nro)
+    RETORNA ! OBTENER(butacas, nro)
+FIN_FUNCION
+
+FUNCION ENTERO ContarButacasLibres (LISTA <BOOLEANO> butacas)
+    ENTERO desocupadas = 0
+    PARA (ENTERO b = 0; b < LONGITUD(butacas); b++)
+    HACER
+        SI OBTENER(butacas, b) == falso
+        ENTONCES
+            desocupadas++
+        FIN_SI
+    FIN_PARA
+    RETORNAR desocupadas
+FIN_FUNCION
 
 
 
