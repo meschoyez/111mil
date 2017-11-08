@@ -651,6 +651,25 @@ FUNCION ENTERO ContarButacasLibres (LISTA <BOOLEANO> butacas)
     RETORNAR desocupadas
 FIN_FUNCION
 
+-------------------------------------
+Conversion de tipos de datos
+
+Para que no haya perdida de informacion, se debe
+realizar conversion de tipo (type casting) explicita
+
+Pasar de Entero a Flotante
+
+Ej1:
+int x = 10;
+float y = (float)x;
+
+Ej2:
+float x = 5.6;
+int y = (int)x;
+
+
+
+
 
 
 

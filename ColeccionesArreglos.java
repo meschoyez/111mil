@@ -19,11 +19,13 @@ public class ColeccionesArreglos {
 //        for (int pos=0; pos < butacas.length; pos++) {
 //            butacas[pos] = true;
 //        }
-        boolean[] butacas = {false, false, false};
-//        boolean[] butacas = {false, true,
-//            true, false, false, false, true};
+//        boolean[] butacas = {false, false, false};
+        boolean[] butacas = {false, true,
+            true, false, false, false, true};
 
-        desocupadas = ContarButacasLibres(butacas);
+        System.out.println("Lleno al " +
+             PorcentajeOcupacion(butacas) + "%");
+/*        desocupadas = ContarButacasLibres(butacas);
         System.out.println("Hay" + desocupadas +
                 " butacas libres");
 
@@ -35,6 +37,7 @@ public class ColeccionesArreglos {
         resultado = CineVacio(butacas);
         resultado = CineVacioWhile(butacas);
         resultado = CineVacioIndef(butacas);
+*/
     }
 
     private static int ContarButacasLibres(boolean[] butacas) {
@@ -149,10 +152,56 @@ public class ColeccionesArreglos {
 
 
 
-    private static int BuscarButacaLibre(boolean[] butacas) {
+    private static int BuscarButacaLibre1(boolean[] butacas) {
+        int posicion = -1;
+        for (int corredor = 0; corredor < butacas.length; corredor++) {
+            if (ButacaLibre(butacas, corredor)) {
+                posicion = corredor;
+            }
+        }
+        return posicion;
+    }
+
+    private static int BuscarButacaLibre2(boolean[] butacas) {
+        int butLibre = 0;
+        boolean butLlena = true;
+        while (butLlena && butLibre < butacas.length) {
+            if (ButacaLibre(butacas, butLibre)) {
+                butLlena = false;
+            }
+            butLibre++;
+        }
+        return butLibre - 1;        
+    }
+
+    private static int BuscarButacaLibre3(boolean[] butacas) {
+        int posicion = 0;
+        while ((posicion < butacas.length) &&
+                       (!ButacaLibre(butacas, posicion))) {
+//                       (ButacaLibre(butacas, posicion) == false)) {
+            posicion++;
+        }
+        /* Si hace falta devolver -1 */
+        if (posicion == butacas.length) {
+            posicion = -1;
+        }
+        /* ********** */
+        return posicion;
     }
 
     private static float PorcentajeOcupacion (boolean[] butacas) {
+        float ocupacion = 100 *
+              (float)ContarButacasOcupadas(butacas) /
+              (float)butacas.length;
+        return ocupacion;
     }
 
+    //****  DESAFIO ****//
+    private static int Buscar2ButacasLibresContiguas
+                                   (boolean[] butacas) {
+    }
+
+    private static int BuscarNButacasLibresContiguas
+                                   (boolean[] butacas, int n) {
+    }
 }
