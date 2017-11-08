@@ -121,7 +121,7 @@ public class ColeccionesArreglos {
             }
             pos++;
         }
-        return vacio;
+        return lleno;
     }
 
     private static int ContarButacasOcupadas(boolean[] butacas) {
@@ -140,7 +140,7 @@ public class ColeccionesArreglos {
         if (ocupadas != butacas.length) {
             lleno = false;
         }
-        return vacio;
+        return lleno;
     }
 
     private static boolean CineLlenoContar1linea(boolean[] butacas) {
