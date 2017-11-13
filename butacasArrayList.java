@@ -46,12 +46,6 @@ public class ColeccionesArreglos {
         return desocupadas;
     }
 
-
-    private static boolean ButacaLibre(ArrayList<Boolean> butacas, int nro) {
-        return ! butacas.get(nro);
-    }
-
-
     private static boolean OcuparButaca(
                    ArrayList<Boolean> butacas, int nro) {
         boolean libre = ButacaLibre(butacas, nro);
@@ -61,4 +55,77 @@ public class ColeccionesArreglos {
         return libre;
     }
 
+    private static boolean ButacaLibre(ArrayList<Boolean> butacas, int nro) {
+        return ! butacas.get(nro);
+    }
+
+/* Completar metodos faltantes */
+
+    private static boolean ButacaOcupada (ArrayList<Boolean> butacas, int nro) {
+        return butacas.get(nro);
+    }
+    
+    private static boolean CineVacioFor(ArrayList<Boolean> butacas) {
+        boolean vacio = true;
+        for (int pos = 0; pos < butacas.size(); pos++) {
+            if (butacas.get(pos)) {
+                vacio = false;
+            }
+        }
+        return vacio;
+    }
+
+    private static boolean CineVacioForeach(ArrayList<Boolean> butacas) {
+        boolean vacio = true;
+        for (Boolean b : butacas) {
+            if (b) {
+                vacio = false;
+            }
+        }
+        return vacio;
+    }
+
+    private static boolean CineVacio(ArrayList<Boolean> butacas) {
+        return ! butacas.contains(true);
+    }
+
+    private static boolean CineLleno(ArrayList<Boolean> butacas) {
+        return ! butacas.contains(false);
+    }
+
+ContarButacasOcupadas
+
+    private static int BuscarButacaLibre1(ArrayList<Boolean> butacas) {
+        int posicion = 0, libre = -1;
+        for (Boolean b : butacas) {
+            if (b == false) {
+                libre = posicion;
+            }
+            posicion++;
+        }
+        return libre;
+    }
+
+    private static int BuscarButacaLibre2(ArrayList<Boolean> butacas) {
+        int posicion = 0, libre = -1;
+        for (Boolean b : butacas) {
+            if ((b == false) && (libre < 0)) {
+                libre = posicion;
+            }
+            posicion++;
+        }
+        return libre;
+    }
+
+    private static int BuscarButacaLibre(ArrayList<Boolean> butacas) {
+        return butacas.indexOf(false);
+    }
+
+PorcentajeOcupacion
+
+Buscar2ButacasLibresContiguas
+
+BuscarNButacasLibresContiguas
+
 }
+

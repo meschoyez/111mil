@@ -201,7 +201,46 @@ public class ColeccionesArreglos {
                                    (boolean[] butacas) {
     }
 
-    private static int BuscarNButacasLibresContiguas
+    private static int BuscarNButacasLibresContiguas1
                                    (boolean[] butacas, int n) {
+        int posicion = 0, libre;
+        boolean finalizado = false;
+        while (((posicion + n - 1) < butacas.length) && !finalizado) {
+            libre = 0;
+//            while (ButacasLibre(butacas, posicion) &&
+//                   ButacasLibre(butacas, posicion+1) && !finalizado) {
+            while ((butacas[posicion] == false) &&
+                     (butacas[posicion+1] == false) && !finalizado) {
+                posicion++;
+                libre++;
+                if (libre+1 == n) {
+                    finalizado = true;
+                }
+            }
+            if (finalizado == false) {
+                posicion++;
+            }
+        }
+        return posicion - n + 1;
     }
 }
+
+    private static int BuscarNButacasLibresContiguas2
+                                   (boolean[] butacas, int n) {
+        int posicion = 0, contiguos = 0;
+        while ((contiguos < n) || (posicion + n-1) < butacas.length)) {
+            if (ButacaLibre(butacas, posicion)) {
+                contiguos++;
+            }
+            else {
+                contiguos = 0;
+            }
+            posicion++;
+        }
+        return posicion - n + 1;
+    }
+        
+
+
+
+
