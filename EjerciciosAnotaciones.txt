@@ -667,6 +667,22 @@ Ej2:
 float x = 5.6;
 int y = (int)x;
 
+---------------------------------------
+
+Pilas -> en Java utilizaremos la clase Stack
+
+class Stack<E> -> <E> indica que es una plantilla
+                    (template)
+
+---------------------------------------
+
+Colas -> en Java utilizaremos la clase LinkedList
+
+class LinkedList<E> -> <E> indica que es una plantilla
+                    (template)
+
+
+
 
 
 
