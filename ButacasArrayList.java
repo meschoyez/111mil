@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  *
  * @author meschoyez
@@ -14,9 +16,12 @@ public class ButacasArrayList {
      * realice lo siguiente:
      *  - El cine cuenta con 15 butacas
      *  - El primer cliente compra 3 entradas
+     *        (sugerencia: agregar metodo ComprarNEntradas)
      *  - El segundo cliente compra 2 entradas
      *  - El tercer cliente compra 5 entradas
      *  - El segundo cliente cancela sus 2 entradas
+     *        (sugerencia: agregar los metodos LiberarButaca
+     *           CancelarReservaNButacas)
      *  - El cuarto cliente compra 4 entradas
      *  - El quinto cliente compra 1 entrada
      * Finalmente, mostrar por pantalla la cantidad de butacas
@@ -151,7 +156,7 @@ public class ButacasArrayList {
 
 
     private static int Buscar2ButacasLibresContiguas
-                                   (boolean[] butacas) {
+                                   (ArrayList<Boolean> butacas) {
         return BuscarNButacasLibresContiguas(butacas, 2);
     }
 
@@ -178,7 +183,7 @@ public class ButacasArrayList {
         int posicion = 0, contiguos = 0, primeraLibre = -1;
         for (boolean b : butacas) {
             if ((contiguos < n) && (primeraLibre == -1) &&
-                        (ButacaLibre(butacas, posicion)) {
+                        (ButacaLibre(butacas, posicion))) {
                 contiguos++;
                 if (contiguos == n) {
                     primeraLibre = posicion - n + 1;
