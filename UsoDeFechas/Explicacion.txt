@@ -1,0 +1,5 @@
+Para el proyecto cine solo basta con utilizar las clases Date y Gregorian Calendar.
+
+En el ejemplo se muestra como pasar de GregorianCalendar a Date y viceversa.
+
+Además, se muestra como incremetar una fecha y horas dadas.
